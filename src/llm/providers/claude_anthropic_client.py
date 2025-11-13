@@ -5,6 +5,7 @@
 import asyncio
 import dataclasses
 import os
+import httpx
 
 from anthropic import (
     NOT_GIVEN,
@@ -36,12 +37,14 @@ class ClaudeAnthropicClient(LLMProviderClientBase):
                 api_key=api_key,
                 base_url=self.cfg.llm.anthropic_base_url,
                 timeout=600.0,  # 10 minutes timeout for long requests
+                http_client=httpx.AsyncClient(proxy="http://127.0.0.1:7981"),
             )
         else:
             return Anthropic(
                 api_key=api_key,
                 base_url=self.cfg.llm.anthropic_base_url,
                 timeout=600.0,  # 10 minutes timeout for long requests
+                http_client=httpx.AsyncClient(proxy="http://127.0.0.1:7981"),
             )
 
     @retry(wait=wait_fixed(10), stop=stop_after_attempt(5))
