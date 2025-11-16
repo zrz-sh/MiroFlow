@@ -1,0 +1,1 @@
+uv run utils/progress_check/check_gaia_progress.py /share/zhangruize-nfs/MiroFlow/logs/gaia-validation-text-only/qwen2-5-7b-instruct_full-tasks_20251116_2035
