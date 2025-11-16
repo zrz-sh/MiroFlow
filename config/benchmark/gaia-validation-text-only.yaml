@@ -10,7 +10,7 @@ data:
 
 execution:
   max_tasks: null  # null means no limit
-  max_concurrent: 3
+  max_concurrent: 10
   pass_at_k: 1
 
 openai_api_key: "${oc.env:OPENAI_API_KEY,???}"
